@@ -6,22 +6,22 @@ clear
 # 2.) Check if you are running this script under root privileges:
 if [ "$(id -u)" != "0" ]; then
     echo "This script must be run as root, exiting..!!" 1>&2
-    exit 87
+    exit 1
 fi
 
-# 3.) Make sure that you are running a GNU/Linux distribution:
-if [ `uname -s` != Linux ]; then
+# 3.) Make sure that you are running a RedHat/CentOS 7.x GNU/Linux distribution:
+if [ `rpm -qa \*-release | grep -Ei "oracle|redhat|centos" | cut -d"-" -f3` != 7 ]; then
     echo "ERROR: Unsupported OS detected! This script only detects GNU/Linux distributions!" 1>&2
     exit 1
 fi
 
-# 4.) Install MariaDB server and configure autostart:
+# 4.) Install MariaDB server and enable autostart:
 yum -y install mariadb-server mariadb
 systemctl start mariadb.service
 systemctl enable mariadb.service
 mysql_secure_installation
 
-# 5.) Install Apache2 and configre autostart:
+# 5.) Install Apache2 and enable autostart:
 yum -y install httpd
 systemctl start httpd.service
 systemctl enable httpd.service
