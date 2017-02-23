@@ -37,4 +37,4 @@ yum -y install php
 
 ##
 echo "Installation has completed!"
-echo "Your system's IP address is: `hostname -i | cut -d " " -f 2`
+echo "Your system's IP address is: `hostname -i | cut -d " " -f 2`"
