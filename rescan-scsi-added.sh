@@ -3,7 +3,8 @@
 # rescan-scsi-added.sh
 
 # Rescan scsi bus on your machine for newly added disks using this script
-# Just execute ./rescan_scsi_added.sh and check the results
+# Just execute ./rescan-scsi-added.sh and check the results
+# Note that if you remove disks this script will still show them as present
 
 # Author: Petyo Kunchev
 # Revision:
