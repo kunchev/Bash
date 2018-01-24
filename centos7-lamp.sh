@@ -1,8 +1,10 @@
 #!/bin/bash
 
-# Autho: Petyo Kunchev
+# Author: Petyo Kunchev
 # Revision:
-# ver.1.0 24.01.2018
+# ver.1.0 - 24.01.2018
+
+# License: GPLv2
 
 # 1.) Clear the screen:
 clear
