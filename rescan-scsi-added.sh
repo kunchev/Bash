@@ -22,7 +22,6 @@ if [ "$(id -u)" != "0" ]; then
     exit 1
 fi
 
-
 # Get block device list:
 list_blk() {
     local blklist=`lsblk`
