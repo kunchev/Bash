@@ -5,6 +5,7 @@
 # ver.1.0 - 24.01.2018
 
 # License: GPLv2
+# https://github.com/kunchev/Linux-Shell-Scripts/blob/master/LICENSE.md
 
 # 1.) Clear the screen:
 clear
@@ -41,6 +42,6 @@ firewall-cmd --reload
 yum -y install php
 #yum -y install php-fpm # optional package, uncomment if needed
 
-##
+###
 echo "Installation has completed!"
 echo "Your system's IP address is: `hostname -i | cut -d " " -f 2`"
