@@ -11,6 +11,7 @@
 # ver.1.0 - 24.01.2018
 
 # License: GPLv2
+# https://github.com/kunchev/Linux-Shell-Scripts/blob/master/LICENSE.md
 
 # Clear the screen:
 clear
