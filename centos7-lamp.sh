@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Autho: Petyo Kunchev
+# Revision:
+# ver.1.0 24.01.2018
+
 # 1.) Clear the screen:
 clear
 
