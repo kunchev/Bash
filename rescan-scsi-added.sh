@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# rescan_scsi_added.sh
+# rescan-scsi-added.sh
 
 # Rescan scsi bus on your machine for newly added disks using this script
 # Just execute ./rescan_scsi_added.sh and check the results
