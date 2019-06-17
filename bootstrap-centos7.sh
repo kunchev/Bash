@@ -169,7 +169,10 @@ echo
 
 # free mem
 echo "System memory info:"
-free
+echo "in GBs"
+free -g
+echo "in MBs"
+free -m
 echo
 
 # disk usage
