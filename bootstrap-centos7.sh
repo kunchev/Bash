@@ -4,6 +4,9 @@
 # Bootstrap CentOS 7 x86_64, will also work on Red Hat 7.x if active yum repositories are present
 # Minimal setup
 
+# License: GPLv2
+# https://github.com/kunchev/Linux-Shell-Scripts/blob/master/LICENSE.md
+
 # Changelog:
 # 20.3.2019 - Initial version
 #
