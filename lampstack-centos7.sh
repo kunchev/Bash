@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Author: Petyo Kunchev
 # Revision:
 # ver.1.0 - 24.01.2018
 
 # License: GPLv2
 # https://github.com/kunchev/Linux-Shell-Scripts/blob/master/LICENSE.md
+
 
 # 1.) Clear the screen:
 clear
@@ -18,7 +18,7 @@ fi
 
 # 3.) Make sure that you are running a RedHat/CentOS 7.x GNU/Linux distribution:
 if [ `rpm -qa \*-release | grep -Ei "oracle|redhat|centos" | cut -d"-" -f3` != 7 ]; then
-    echo "ERROR: Unsupported OS detected! This script only detects GNU/Linux distributions!" 1>&2
+    echo "ERROR: Unsupported OS! This script only detects GNU/Linux distributions!" 1>&2
     exit 1
 fi
 
@@ -40,7 +40,7 @@ firewall-cmd --reload
 
 # 7.) Install PHP5:
 yum -y install php
-#yum -y install php-fpm # optional package, uncomment if needed
+# yum -y install php-fpm # optional package, uncomment if needed
 
 ###
 echo "Installation has completed!"
