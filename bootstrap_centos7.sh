@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Petyo Kunchev 
-# Bootstrap CentOS 7 x86_64, will also work on Red Hat 7.x if active yum repositories are present
+# Bootstrap CentOS 7 x86_64,
+# will also work on Red Hat 7.x if active yum repositories are present
+#
 # Minimal setup
 
 # License: GPLv2
@@ -35,7 +36,6 @@ confirm() {
     esac
 }
 
-# clear
 clear
 sleep 1
 
@@ -126,16 +126,17 @@ echo "disabling 'selinux'"
 echo ""
 
 setenforce 0
-sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config && cat /etc/selinux/config # comment line if you want to continue using selinux in enforcing mode
+# comment out the line below if you want to continue using selinux in enforcing mode
+sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config && cat /etc/selinux/config 
 
-# timezone
+# timezone setup
 echo ""
 echo "setting timzone 'Europe/Sofia'"
 echo ""
 
 timedatectl set-timezone Europe/Sofia # change timezone according to your needs
 
-# ssh key generation
+# ssh key generation 
 echo ""
 echo "generating ssh key for 'root'"
 echo ""
@@ -190,4 +191,5 @@ echo ""
 echo "complete, shutting down"
 echo ""
 reboot
-#poweroff # uncomment this line if you want to poweroff the system after script completes
+# uncomment the line below you want to poweroff the system after script completes
+# poweroff
