@@ -14,14 +14,14 @@
 # https://github.com/kunchev/Linux-Shell-Scripts/blob/master/LICENSE.md
 
 # Get block device list function:
-list_blk() {
+function list_blk() {
     local blklist=`lsblk`
     echo "----$1:"
     printf "%s\n" "${blklist}"
 }
 
 # Rescan scsi bus function - Linux, when adding a new disk:
-rescan_scsi_bus_added() {
+function rescan_scsi_bus_added() {
     local scsihost="/sys/class/scsi_host/host*/scan"
     for BUS in ${scsihost}
     do
