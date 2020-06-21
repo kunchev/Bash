@@ -1,7 +1,6 @@
 #!/bin/bash
 
 
-
 # About: rescan_scsi_added.sh
 #
 # Rescan scsi bus on your machine for newly added disks using this script
@@ -13,7 +12,6 @@
 # ver. 1.0.0 - Jan/24.2018
 
 # License: GPLv2
-
 
 function list_blk() {
     # Get block device list function - Linux, current block devices
@@ -40,7 +38,6 @@ function main() {
     rescan_scsi_bus_added
     list_blk "Rescanned block devices on $(hostname -s)"
 }
-
 
 # check if running as root and call main() if so, else exit
 if [ "$(id -u)" != "0" ]; then
