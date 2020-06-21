@@ -1,2 +1,2 @@
 # Bash-Scripts
-Handy Shell scripts for daily Linux sysadmin tasks
+Handy shell scripts for daily Linux sysadmin tasks
