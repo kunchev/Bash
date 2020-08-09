@@ -16,7 +16,7 @@
 # Active yum repositories are required for the yum install/update section.
 # Script output is logged to file in the current working directory.
 
-# License: https://github.com/kunchev/bash-scripts/blob/master/LICENSE.md
+# License: GPLv2
 
 
 # configs
