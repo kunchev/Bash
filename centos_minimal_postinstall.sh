@@ -26,7 +26,7 @@ declare -r hostname_file="/etc/hostname"
 declare -r hosts_file="/etc/hosts"
 declare -r mounts_file="/etc/fstab"
 declare -r selinux_file="/etc/selinux/config"
-declare -r major_version=8
+declare -r major_version=7
 
 
 # funcs
