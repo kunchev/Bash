@@ -30,7 +30,7 @@ declare -r major_version=7
 
 
 # funcs
-_confirm() {
+function _confirm {
     # call with a prompt string or use a default
     read -r -p "${1:-Are you sure you want to continue? [y/N]} " resp
     case "$resp" in
