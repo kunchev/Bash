@@ -6,7 +6,7 @@
 
 # License: GPLv2
 
-function list_blk() {
+function list_blk {
     # Get block device list function - Linux, current block devices
     local blklist=$(lsblk)
     echo "----$1:"
@@ -14,7 +14,7 @@ function list_blk() {
     echo ""
 }
 
-function rescan_scsi_bus_added() {
+function rescan_scsi_bus_added {
     # Rescan scsi bus function - Linux, when adding a new disk
     local scsihost="/sys/class/scsi_host/host*/scan"
     for BUS in ${scsihost}
@@ -24,7 +24,7 @@ function rescan_scsi_bus_added() {
 }
 
 
-function main() {
+function main {
     # Clear screen and call the list_blk() and rescan_blk() functions 
     clear
     list_blk "Current block devices on $(hostname -s)"
@@ -32,6 +32,7 @@ function main() {
     rescan_scsi_bus_added
     list_blk "Rescanned block devices on $(hostname -s)"
 }
+
 
 # check if running as root and call main() if so, else exit
 if [ "$(id -u)" != "0" ]; then
