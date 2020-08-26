@@ -23,6 +23,7 @@ function rescan_scsi_bus_added() {
     done
 }
 
+
 function main() {
     # Clear screen and call the list_blk() and rescan_blk() functions 
     clear
