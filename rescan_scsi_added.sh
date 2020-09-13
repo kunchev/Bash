@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# rescan_scsi_added.sh
+#
 # Rescan scsi bus on your machine for newly added disks using this script
 # Just execute ./rescan_scsi_added.sh and check the results
 # Note that if you remove disks this script will still show them as present
@@ -35,7 +37,7 @@ function main {
 }
 
 
-# check if the scriot is running as root and call main() if so (sudo also supporter), else exit:
+# check if the script is running as root/sudo user and call main() if so, else exit:
 if [ "$(id -u)" != "0" ]; then
     echo "This script must be run as root, you are $(whoami), exiting..!!" 1>&2
     exit 1
