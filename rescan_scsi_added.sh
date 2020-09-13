@@ -6,8 +6,9 @@
 
 # License: GPLv2
 
+
 function list_blk {
-    # Get block device list function - Linux, current block devices
+    # get block device list function - Linux, current block devices
     local blklist=$(lsblk)
     echo "----$1:"
     printf "%s\n" "${blklist}"
@@ -15,7 +16,7 @@ function list_blk {
 }
 
 function rescan_scsi_bus_added {
-    # Rescan scsi bus function - Linux, when adding a new disk
+    # rescan scsi bus function - Linux, when adding a new disk
     local scsihost="/sys/class/scsi_host/host*/scan"
     for BUS in ${scsihost}
     do
@@ -25,7 +26,7 @@ function rescan_scsi_bus_added {
 
 
 function main {
-    # Clear screen and call the list_blk() and rescan_blk() functions 
+    # clear screen and call the list_blk() and rescan_blk() functions: 
     clear
     list_blk "Current block devices on $(hostname -s)"
     echo -e "scanning...\n"
@@ -34,7 +35,7 @@ function main {
 }
 
 
-# check if running as root and call main() if so, else exit
+# check if the scriot is running as root and call main() if so (sudo also supporter), else exit:
 if [ "$(id -u)" != "0" ]; then
     echo "This script must be run as root, you are $(whoami), exiting..!!" 1>&2
     exit 1
