@@ -6,8 +6,6 @@
 # Just execute ./rescan_scsi_added.sh and check the results
 # Note that if you remove disks this script will still show them as present
 
-# License: GPLv2
-
 
 function list_blk {
     # get block device list function - Linux, current block devices
@@ -35,7 +33,6 @@ function main {
     rescan_scsi_bus_added
     list_blk "Rescanned block devices on $(hostname -s)"
 }
-
 
 # check if the script is running as root/sudo user and call main() if so, else exit:
 if [ "$(id -u)" != "0" ]; then
