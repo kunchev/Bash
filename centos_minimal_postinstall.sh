@@ -16,8 +16,6 @@
 # Active yum repositories are required for the yum install/update section.
 # Script output is logged to file in the current working directory.
 
-# License: GPLv2
-
 
 # configs
 declare -r bkp_dir="/root/backups"
@@ -28,8 +26,6 @@ declare -r mounts_file="/etc/fstab"
 declare -r selinux_file="/etc/selinux/config"
 declare -r major_version=7
 
-
-# funcs
 function _confirm {
     # call with a prompt string or use a default
     read -r -p "${1:-Are you sure you want to continue? [y/N]} " resp
@@ -45,7 +41,6 @@ function _confirm {
 
 
 clear
-
 
 # logging
 scriptnoext=$0
