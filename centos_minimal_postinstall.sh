@@ -3,6 +3,7 @@
 set -eo pipefail
 
 
+#
 # Perform basic postinstall configuration of CentOS/RHEL 7.x newly installed server.
 # The script will perform the following configurations:
 #
@@ -18,9 +19,10 @@ set -eo pipefail
 #
 # Active yum repositories are required for the yum install/update section.
 # Script output is logged to file in the current working directory.
+#
 
 
-# configs
+# Configuration section
 declare -r bkp_dir="/root/backups"
 declare -r os_file="/etc/redhat-release"
 declare -r hostname_file="/etc/hostname"
@@ -45,12 +47,12 @@ function _confirm {
 
 clear
 
-# logging
+# Logging section
 scriptnoext=$0
 exec &> >(tee -a "${scriptnoext%.*}.log_`date +%Y-%m-%d`")
 
 
-# check if you are running this script as root (sudo also works)
+# Check if you are running this script as root (sudo also works)
 echo "starting user check.."
 if [ "$(id -u)" != "0" ]; then
     echo "error, this script must be run as root, exiting.." 1>&2
@@ -60,11 +62,11 @@ else
 fi
 
 
-# cinfirm and continue or exit
+# Confirm and continue, or exit
 _confirm
 
 
-# check if os is centos/rhel
+# Check if os is centos/rhel
 echo ""
 echo "starting os/distribution check.."
 if [ ! -f $os_file ]; then
@@ -88,7 +90,7 @@ else
 fi
 
 
-# backup folder for the original configuration files
+# Backup folder for the original configuration files
 echo ""
 echo "working on $bkp_dir folder.."
 if [ ! -d $bkp_dir ]; then
@@ -102,7 +104,7 @@ else
 fi
 
 
-# hostname
+# Get hostname
 echo ""
 echo "setting hostname and hosts record.."
 cp $hostname_file $bkp_dir/hostname.orig
@@ -126,7 +128,7 @@ for partition in $(df -hPT | grep -v tmpfs | grep -v swap | grep -v Mounted | aw
 done
 
 
-# yum
+# YUM config
 echo ""
 echo "installing packages and performing os update"
 yum install deltarpm epel-release -y
@@ -137,14 +139,14 @@ yum install screen curl vim dos2unix lsof man tree zip unzip mlocate wget rsync 
 updatedb
 
 
-# services
+# Services config
 echo ""
 echo "services: enabling chrony, disabling firewalld.."
 systemctl enable chronyd # switch with 'disable' for inacvive chronyd
 systemctl disable firewalld # switch with 'enable' for active firewalld
 
 
-# selinux
+# SELinux config
 echo ""
 echo "disabling selinux.."
 cp $selinux_file $bkp_dir/_selinux_config.orig
@@ -153,42 +155,42 @@ setenforce 0
 sed -i 's/^SELINUX=.*/SELINUX=disabled/g' $selinux_file && cat $selinux_file 
 
 
-# timezone setup
+# Timezone setup
 echo ""
 echo "setting timzone Europe/Sofia.."
 timedatectl set-timezone Europe/Sofia # change timezone according to your needs
 
 
-# ssh key generation 
+# SSH key-pair generation 
 echo ""
 echo "generating ssh key for $USER.."
 ssh-keygen -t rsa -b 2048 -N "" -f ~/.ssh/id_rsa
 echo ""
 
 
-# display basic system info
+# Display basic system info
 echo "Today's date is: `date`."
 echo ""
 
-# system name
+# System name
 echo "Hostname:"
 hostname -f
 
-# active users
+# Active users
 echo "Active users:"
 w | cut -d ' ' -f 1 | grep -v USER | sort -u
 echo ""
 
-# system information using uname command
+# System information using uname command
 echo "This is `uname -s` running on a `uname -m` CPU."
 echo ""
 
-# uptime
+# Get uptime
 echo "Uptime is:"
 uptime
 echo ""
 
-# free mem
+# Get free mem
 echo "System memory info:"
 echo "in GBs"
 free -g
@@ -196,16 +198,16 @@ echo "in MBs"
 free -m
 echo ""
 
-# disk usage
+# Get disk usage
 echo "Disk Space Utilization:"
 df -mh
 echo ""
 
-# kernel and other info:
+# Show kernel and other info:
 echo "Kernel:"
 uname -a
 
-# complete
+# Confirm
 sleep 1
 echo ""
 echo "completed, it is recommended to reboot your server.."
