@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -eo pipefail
+
 
 # rescan_scsi_added.sh
 #
