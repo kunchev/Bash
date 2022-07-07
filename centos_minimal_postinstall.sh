@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -eo pipefail
+
 
 # Perform basic postinstall configuration of CentOS/RHEL 7.x newly installed server.
 # The script will perform the following configurations:
