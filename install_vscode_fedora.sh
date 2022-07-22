@@ -19,3 +19,4 @@ then
 else
   echo "Setup failed."
   exit 1
+fi
