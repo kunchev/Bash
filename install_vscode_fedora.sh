@@ -17,8 +17,8 @@ sudo dnf install code -y
 # Check status of setup
 if [ $? -eq 0 ]
 then
-  echo "Setup completed."
+  echo "You can now start using VSCode"
 else
-  echo "Setup failed."
+  echo "Setup failed"
   exit 1
 fi
